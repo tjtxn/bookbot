@@ -1,5 +1,11 @@
+import sys
+
+if len(sys.argv) != 2:
+	print("Usage: python3 main.py <path_to_book>")
+	sys.exit(1)
+
 def get_book_text():
-	with open("books/frankenstein.txt") as f:
+	with open(sys.argv[1]) as f:
 		file_contents = f.read()
 	return file_contents
 
@@ -19,7 +25,7 @@ def char_count():
 	character_count = get_letter_count(file_contents)
 	print(character_count)
 
-print("============ BOOKBOT ============\nby: tjtxn\nAnalyzing book found at books/frankenstein.txt...\n----------- Word Count ----------")
+print(f"============ BOOKBOT ============\nby: tjtxn\nAnalyzing book found at {sys.argv[1]}...\n----------- Word Count ----------")
 	
 main()
 
